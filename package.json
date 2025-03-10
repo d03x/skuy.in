@@ -1,0 +1,17 @@
+{
+  "name": "indotube",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev" : "pnpm --stream -r dev",
+    "start:dev" : "pnpm --stream --pararel -r run start:dev",
+    "build":"pnpm --stream -r run build"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  }
+}
