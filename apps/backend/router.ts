@@ -1,9 +1,12 @@
 import ctx from "./core/ctx";
-import routeAuth from "@/routes/auth"
+import routeAuth from "@/routes/auth";
+import apiRoute from "@/routes/api";
 
-ctx.router.get('/home',(req,res)=>{
-    res.end("welcoome")
+ctx.router.get("/", (req, res) => {
+  res.end("welcoome");
 });
+ctx.router.use("/api", apiRoute);
+ctx.router.use("/auth",routeAuth);
+//all
 
-ctx.router.use(routeAuth);
 export default ctx.router;

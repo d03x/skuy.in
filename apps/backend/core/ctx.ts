@@ -14,8 +14,15 @@ class Context {
   constructor() {
     this.logger = LoggerInstance;
     this.http = express();
-    this.router = express.Router();
+    this.router = express.Router({
+      strict:true,
+      caseSensitive:true,
+    });
+    //static files from folder 
+    this.http.use(express.static('public'));
+    //create http server using node http
     this.server = http.createServer(this.http);
+    //for websocket configuration
     this.websocket = new WebSocketServer({ server: this.server });
   }
   /**
