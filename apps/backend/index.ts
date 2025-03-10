@@ -1,12 +1,10 @@
 import cors from "cors";
 import router from "@/router";
-import ctx from "@/core/ctx";
-import path from "path";
-import { log } from "./core/middleware/log";
+import ctx from "@core/ctx";
+import { log } from "@core/middleware/log";
 const PORT = process.env.PORT || 5013;
 //setup express middleware
 ctx.http.use(cors());
-
 ctx.http.use(ctx.rateLimiting());
 ctx.http.use(log());
 ctx.http.use(router);

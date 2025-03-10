@@ -25,7 +25,10 @@
     "noPropertyAccessFromIndexSignature": false,
     "baseUrl": ".",
     "paths": {
-      "@/*" : ["*"],
+      "@/*": ["*"],
+      "@route/*": ["./routes/*"],
+      "@core/*": ["./core/*"],
+      "@controller/*": ["./controllers/*"]
     }
   }
 }
