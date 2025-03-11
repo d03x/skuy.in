@@ -4,10 +4,12 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "bun --watch index.ts"
+    "dev": "bun --watch index.ts",
+    "build": "bun ./scripts/build.ts"
   },
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "drizzle-kit": "^0.30.5"
   },
   "peerDependencies": {
     "typescript": "^5"
@@ -17,15 +19,20 @@
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
     "@types/express-session": "^1.18.1",
+    "@types/node": "^22.13.10",
     "body-parser": "^1.20.3",
     "chalk": "^5.4.1",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "drizzle-orm": "^0.40.0",
     "express": "^4.21.2",
     "express-rate-limit": "^7.5.0",
     "express-session": "^1.18.1",
+    "path": "^0.12.7",
     "pino": "^9.6.0",
     "pino-http": "^10.4.0",
+    "postgres": "^3.4.5",
     "ws": "^8.18.1"
   }
 }

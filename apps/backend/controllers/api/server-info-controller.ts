@@ -1,7 +1,6 @@
 import os from "os";
 const controller = {
   get(req, res) {
-    
     let system = {
       host: os.hostname(),
       uptime: os.uptime(),

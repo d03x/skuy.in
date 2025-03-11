@@ -1,4 +1,5 @@
 import type { Request, Response } from "express";
+import type { Context } from "./core/ctx";
 enum HttpMethods {
   GET = "get",
   POST = "post",
@@ -7,7 +8,7 @@ enum HttpMethods {
   PATCH = "patch",
 }
 declare global {
-  interface BaseController {
+  interface BaseController extends Partial<Context> {
     get?: (req: Request, res: Response) => void;
     put?: (req: Request, res: Response) => void;
     patch?: (req: Request, res: Response) => void;
