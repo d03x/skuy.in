@@ -47,17 +47,17 @@ export class Context {
   }
   private loadEnv() {
     dotenv.config({
-      path:path.resolve(process.cwd(),'.env')
+      path: path.resolve(process.cwd(), ".env"),
     });
     console.info("Loading Dot env");
   }
   private sessionMiddleware() {
     return session({
-      name: "epcookie",
-      secret: "dadan12234!@#$",
+      name: this.env.SESSION_NAME!,
+      secret: this.env.SESSION_SECRET!,
       resave: false,
       saveUninitialized: true,
-      cookie: { secure: false },
+      cookie: { secure: this.env.IS_DEV ? true : false },
     });
   }
   /**
