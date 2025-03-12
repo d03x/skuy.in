@@ -1,0 +1,3 @@
+<tempalte>
+ <RouterView/>
+</tempalte>

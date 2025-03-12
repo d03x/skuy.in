@@ -38365,6 +38365,7 @@ class Context {
   env;
   constructor() {
     this.loadEnv();
+    this.env = process.env;
     this.logger = logger_default;
     this.http = import_express.default();
     this.router = import_express.default.Router({
@@ -38376,7 +38377,6 @@ class Context {
     this.http.use(this.sessionMiddleware());
     this.server = http.createServer(this.http);
     this.websocket = new import_websocket_server.default({ server: this.server });
-    this.env = process.env;
     this.db = this.configureDB();
   }
   configureDB() {
@@ -38392,11 +38392,11 @@ class Context {
   }
   sessionMiddleware() {
     return import_express_session.default({
-      name: "epcookie",
-      secret: "dadan12234!@#$",
+      name: this.env.SESSION_NAME,
+      secret: this.env.SESSION_SECRET,
       resave: false,
       saveUninitialized: true,
-      cookie: { secure: false }
+      cookie: { secure: this.env.IS_DEV ? false : true }
     });
   }
   rateLimiting() {

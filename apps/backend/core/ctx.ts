@@ -21,6 +21,7 @@ export class Context {
   env: any;
   constructor() {
     this.loadEnv();
+    this.env = process.env;
     this.logger = LoggerInstance;
     this.http = express();
     this.router = express.Router({
@@ -35,7 +36,6 @@ export class Context {
     this.server = http.createServer(this.http);
     //for websocket configuration
     this.websocket = new WebSocketServer({ server: this.server });
-    this.env = process.env;
     this.db = this.configureDB();
   }
   private configureDB() {
@@ -47,7 +47,7 @@ export class Context {
   }
   private loadEnv() {
     dotenv.config({
-      path: path.resolve(process.cwd(), ".env"),
+      path:path.resolve(process.cwd(),'.env')
     });
     console.info("Loading Dot env");
   }
@@ -57,7 +57,7 @@ export class Context {
       secret: this.env.SESSION_SECRET!,
       resave: false,
       saveUninitialized: true,
-      cookie: { secure: this.env.IS_DEV ? true : false },
+      cookie: { secure: this.env.IS_DEV ? false : true },
     });
   }
   /**

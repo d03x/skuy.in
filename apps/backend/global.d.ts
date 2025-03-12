@@ -8,14 +8,7 @@ enum HttpMethods {
   PATCH = "patch",
 }
 declare global {
-  namespace process {
-    interface env {
-      DATABASE_URL: string;
-      DEFAULT_PORT: number;
-      COOKIE_NAME: string;
-      SESSION_SECRET: string;
-    }
-  }
+  
   interface BaseController extends Partial<Context> {
     get?: (req: Request, res: Response) => void;
     put?: (req: Request, res: Response) => void;
