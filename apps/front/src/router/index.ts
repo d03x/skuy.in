@@ -1,4 +1,6 @@
-import HomeView from '@/views/HomeView.vue'
+import AppLayout from '@/layouts/AppLayout.vue'
+//@ts-ignore
+import NotFoundView from '@/views/NotFoundView.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
@@ -7,7 +9,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'app',
-      component: import('@/layouts/AppLayout.vue'),
+      component: AppLayout,
       children: [
         {
           path: '',
@@ -26,7 +28,7 @@ const router = createRouter({
         },
         {
           path: '/:pathMatch(.*)*',
-          component: import('@/views/NotFoundView.vue'),
+          component: NotFoundView,
         },
       ],
     },

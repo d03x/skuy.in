@@ -17,7 +17,7 @@ function ontoggle(toggle: boolean) {
 </script>
 
 <template>
-  <div class="max-w-xl bg-gray-50 relative min-h-screen mx-auto">
+  <div class="max-w-xl bg-white relative min-h-screen mx-auto">
     <header class="h-12.5 sticky top-0 flex shadow items-center px-6 bg-white ">
       <div class="mr-auto flex items-center space-x-3">
         <Menu @toggle="ontoggle" />
@@ -28,7 +28,18 @@ function ontoggle(toggle: boolean) {
       </div>
     </header>
     <div>
-      <router-view />
+      <RouterView v-slot="{ Component }">
+        <Transition mode="out-in">
+          <KeepAlive>
+            <Suspense>
+              <component :is="Component" />
+              <template #fallback>
+                Loading....
+              </template>
+            </Suspense>
+          </KeepAlive>
+        </Transition>
+      </RouterView>
     </div>
     <MobileNavbar />
   </div>

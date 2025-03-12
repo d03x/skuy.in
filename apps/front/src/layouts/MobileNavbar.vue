@@ -8,7 +8,7 @@ import TransferIcon from '@/components/icons/TransferIcon.vue';
 
 </script>
 <template>
-  <nav class="justify-between flex items-center max-w-xl mx-auto bg-black-300 inset-x-0 bottom-0 h-14 w-full shadow-md bg-white fixed bottom-0">
+  <nav class="justify-between flex items-center max-w-xl mx-auto border-t bg-black-300 inset-x-0 bottom-0 h-14 w-full shadow-md bg-white fixed bottom-0">
     <BottomNavMenu to="/" label="Home" :icon="HomeIcon" />
     <BottomNavMenu to="/orders" label="Beli Cepat" :icon="FlashOrder" />
     <BottomNavMenu to="/transactions" label="Transaksi" :icon="TransferIcon" />
